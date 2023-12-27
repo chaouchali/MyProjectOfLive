@@ -1,0 +1,99 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contactez-nous-EEED{% endblock %}
+
+{% block body %}
+<section>
+    <div class="block no-padding  gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="inner2">
+                        <div class="inner-title2">
+                            <h3>Contact</h3>
+                            <span>Tenez-vous au courant des dernières nouvelles</span>
+                        </div>
+                        <div class="page-breacrumbs">
+                            <ul class="breadcrumbs">
+                                <li><a href="/liens-utiles/contact" title="">Acceuil</a></li>
+                                {# <li><a href="#" title="">Pages</a></li> #}
+                                <li><a href="#" title="">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="block">
+        <div class="container">
+             <div class="row">
+                 <div class="col-lg-6 column">
+                     <div class="contact-form">
+                         <h3>Rester en contact</h3>
+                            {{form_start(form)}}
+                             <div class="row">
+                                 <div class="col-lg-12">
+                                     <span class="pf-title">Nom & Prenom</span>
+                                     <div class="pf-field">
+                                        {{form_widget(form.name, {'attr': {'class': 'form-control'}})}}                                     
+                                    </div>
+                                 </div>
+                                 <div class="col-lg-12">
+                                     <span class="pf-title">Numero de telephone</span>
+                                     <div class="pf-field">
+                                        {{form_widget(form.phone, {'attr': {'class': 'form-control'}})}}                                     
+                                    </div>
+                                 </div>
+                                 <div class="col-lg-12">
+                                     <span class="pf-title">Email</span>
+                                     <div class="pf-field">
+                                     {{form_widget(form.email, {'attr': {'class': 'form-control'}})}}
+                                    </div>
+                                 </div>
+                                 <div class="col-lg-12">
+                                     <span class="pf-title">Sujet contact</span>
+                                     <div class="pf-field">
+                                     {{form_widget(form.subject, {'attr': {'class': 'form-control'}})}}
+                                     </div>
+                                 </div>
+                                 <div class="col-lg-12">
+                                     <span class="pf-title">Message</span>
+                                     <div class="pf-field">
+                                     {{form_widget(form.message, {'attr': {'class': 'form-control'}})}}
+                                     </div>
+                                 </div>
+                                 <div class="col-lg-12">
+                                     <button type="submit">Envoyer</button>
+                                 </div>
+                             </div>
+                             {{form_rest(form)}}
+                             {%for message in app.Flashes('success') %}
+                             <div class="alert alert-success" role="alert">
+                                 {{message}}
+                             </div>
+                             {%endfor %}
+                     
+                     {{form_end(form)}}
+                     </div>
+                 </div>
+                 <div class="col-lg-6 column">
+                     <div class="contact-textinfo">
+                         <h3>EEED Bureau</h3>
+                         <ul>
+                             <li><i class="la la-map-marker"></i><span>Gafsa, Tunisie </span></li>
+                             <li><i class="la la-phone"></i><span>23 232 323</span></li>
+                             <li><i class="la la-fax"></i><span> 70 700 700</span></li>
+                             <li><i class="la la-envelope-o"></i><span>contact@eeed.tn</span></li>
+                         </ul>
+                         {# <a class="fill" href="#" title="">See on Map</a><a href="#" title="">Directions</a> #}
+                     </div>
+                </div>
+             </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
